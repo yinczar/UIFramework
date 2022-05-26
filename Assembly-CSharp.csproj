@@ -73,12 +73,15 @@
     <Compile Include="Assets\UIFramework\Scripts\Common\MonoSingleton.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Common\ShowFPS.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Common\UnityHelper.cs" />
-    <Compile Include="Assets\UIFramework\Scripts\Demo\Panel_Bottom.cs" />
-    <Compile Include="Assets\UIFramework\Scripts\Demo\Panel_Center.cs" />
-    <Compile Include="Assets\UIFramework\Scripts\Demo\Panel_Left.cs" />
-    <Compile Include="Assets\UIFramework\Scripts\Demo\Panel_Right.cs" />
-    <Compile Include="Assets\UIFramework\Scripts\Demo\Panel_Top.cs" />
-    <Compile Include="Assets\UIFramework\Scripts\Demo\TestPanel.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\PanelSwitch\PanelSwitcher.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\PanelSwitch\Panel_Green.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\PanelSwitch\Panel_Red.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\Panel_Bottom.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\Panel_Center.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\Panel_Left.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\Panel_Right.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\Panel_Top.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\TestPanel.cs" />
     <Compile Include="Assets\UIFramework\Scripts\UI\Base\BasePanel.cs" />
     <Compile Include="Assets\UIFramework\Scripts\UI\UIManager.cs" />
   </ItemGroup>

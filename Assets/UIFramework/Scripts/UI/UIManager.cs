@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Common;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UIManager : MonoSingleton<UIManager>
 {
@@ -45,7 +46,10 @@ public class UIManager : MonoSingleton<UIManager>
 
     #region Public Function
 
-    public T GetPanel<T>()
+    /// <summary>    /// Get panel class    /// </summary>
+    /// <typeparam name="T">  BasePanel child class  </typeparam>
+    /// <returns> panel class </returns>
+    public T GetPanel<T>() where T : BasePanel
     {
         foreach (var basePanel in basePanelList)
         {
@@ -56,7 +60,30 @@ public class UIManager : MonoSingleton<UIManager>
         return default;
     }
 
+    /// <summary>    /// Set panel visible    /// </summary>
+    /// <typeparam name="T"> BasePanel child class  </typeparam>
+    /// <param name="visible"></param>
+    /// <param name="_callback_start"></param>
+    /// <param name="_callback_completed"></param>
+    public void SetPanelVisible<T>( bool visible, UnityAction _callback_start = null, UnityAction _callback_completed = null)  where T : BasePanel
+    {
+        GetPanel<T>().SetVisible(visible , _callback_start, _callback_completed);
+    }
 
+    /// <summary>    /// Switch panel    /// </summary>
+    /// <typeparam name="T0"></typeparam>
+    /// <typeparam name="T1"></typeparam>
+    /// <param name="currentPanel"></param>
+    /// <param name="targetPanel"></param>
+    /// <param name="fadeOnTweenStart"></param>
+    /// <param name="_callback_start"></param>
+    /// <param name="_callback_completed"></param>
+    public void SwitchPanel<T0, T1>( bool fadeOnTweenStart = true, UnityAction _callback_start = null, UnityAction _callback_completed = null) 
+        where T0 : BasePanel 
+        where T1 : BasePanel
+    {
+        GetPanel<T0>().SwitchToPanel(GetPanel<T1>(), fadeOnTweenStart, _callback_start, _callback_completed);
+    }
 
 
     //public void ShowTips(   string contents , Canvas canvas = null)

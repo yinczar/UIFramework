@@ -49,8 +49,9 @@ public class BasePanel : MonoBehaviour
     #endregion
 
     #region Public Functions
-    /// <summary>    ///  设置面板显隐    /// </summary>
-    public void SetVisible(bool _isVisible, PanelSwitchType _panelSwitchType = PanelSwitchType.CenterFade, UnityAction _callback_start = null, UnityAction _callback_completed = null)
+
+    /// <summary>    ///  Set panel visible    /// </summary>
+    public void SetVisible(bool _isVisible, UnityAction _callback_start = null, UnityAction _callback_completed = null)
     {
         if (!canvasGroup) { Debug.LogError("Component  CanvasGroup is null"); return; };
 
@@ -86,12 +87,42 @@ public class BasePanel : MonoBehaviour
         }
     }
 
-    /// <summary>    ///  返回面板显隐状态    /// </summary>
+
+    /// <summary>    ///  Return visible states    /// </summary>
     /// <returns></returns>
     public bool IsVisible()
     {
         return isVisible;
     }
+
+
+    /// <summary>    ///  Switch to any panel    /// </summary>
+    /// <param name="targetPanel"> </param>
+    /// <param name="fadeOnTweenStart"></param>
+    /// <param name="_callback_start"></param>
+    /// <param name="_callback_completed"></param>
+    public void SwitchToPanel(BasePanel targetPanel, bool fadeOnTweenStart = true , UnityAction _callback_start = null, UnityAction _callback_completed = null)
+    {
+        this.SetVisible(false,
+        () =>
+        {
+            if (fadeOnTweenStart)
+            {
+                targetPanel.SetVisible(true);
+            }
+            _callback_start?.Invoke();
+        },
+        () =>
+        {
+           if (fadeOnTweenStart == false)
+            {
+                targetPanel.SetVisible(true);
+            }
+            _callback_completed?.Invoke();
+        });
+
+    }
+
 
     #endregion
 
@@ -106,7 +137,7 @@ public class BasePanel : MonoBehaviour
         if (!canvasGroup)
             canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
 
-   
+
         if (canvasGroup)
         {
             if (showOnStart)
