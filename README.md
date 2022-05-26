@@ -6,7 +6,7 @@ You can directly use this project code for development, or import **["UIFramewor
 
 ## DEMO
 
-![show01](https://user-images.githubusercontent.com/34049856/170434381-e833cc42-b599-47f3-8250-b2e7b0be35a6.gif)
+![git01](https://user-images.githubusercontent.com/34049856/170442789-439a6b07-5058-42ce-a7ee-40cd2ef61cf5.gif)
 
 ## Tutorial
 
@@ -26,7 +26,21 @@ You can directly use this project code for development, or import **["UIFramewor
 
 ![image](https://user-images.githubusercontent.com/34049856/170438129-9ddf03e6-2809-4f44-ab97-3fe8a2f5c1ee.png)
 
-5.Customize your panel effects
+5.Customize your panel effects. *(At present, only the following three interaction modes are provided)*
+
+***Center***
+
+![image](https://user-images.githubusercontent.com/34049856/170441927-2436d7db-7890-453d-8e6d-ccfdc886648a.png)
+
+***Horizontal***
+
+![image](https://user-images.githubusercontent.com/34049856/170441955-988dd6ee-ee50-417d-86be-4100ef12f452.png)
+
+***Vertical***
+
+![image](https://user-images.githubusercontent.com/34049856/170442022-2ecc6719-4f80-4f2b-9a1c-4d4c6ce834db.png)
+
+
 
 ## Script
 
