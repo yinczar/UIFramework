@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class TestPanel : MonoBehaviour
 {
-
-
-
 #if UNITY_EDITOR
     private void Update()
     {
