@@ -30,17 +30,15 @@ You can directly use this project code for development, or import **["UIFramewor
 
 ***Center***
 
-![image](https://user-images.githubusercontent.com/34049856/170441927-2436d7db-7890-453d-8e6d-ccfdc886648a.png)
+![image](https://user-images.githubusercontent.com/34049856/170443209-fc3c6d78-5d67-436b-9b9c-7a8539769abb.png)
 
 ***Horizontal***
 
-![image](https://user-images.githubusercontent.com/34049856/170441955-988dd6ee-ee50-417d-86be-4100ef12f452.png)
+![image](https://user-images.githubusercontent.com/34049856/170441927-2436d7db-7890-453d-8e6d-ccfdc886648a.png)
 
 ***Vertical***
 
 ![image](https://user-images.githubusercontent.com/34049856/170442022-2ecc6719-4f80-4f2b-9a1c-4d4c6ce834db.png)
-
-
 
 ## Script
 
