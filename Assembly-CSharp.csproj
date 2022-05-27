@@ -83,10 +83,12 @@
     <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\Panel_Top.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\TestPanel.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Demo\Widgets\CircleChart.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\Widgets\CircleChartMulti.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Demo\Widgets\SliderChart.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Demo\Widgets\SliderChartAdv.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Demo\Widgets\TextRoll.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Demo\Widgets\WidgetController.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\WidgetsExample\Panel_WidgetsExample.cs" />
     <Compile Include="Assets\UIFramework\Scripts\UI\Base\BaseChart.cs" />
     <Compile Include="Assets\UIFramework\Scripts\UI\Base\BasePanel.cs" />
     <Compile Include="Assets\UIFramework\Scripts\UI\UIManager.cs" />

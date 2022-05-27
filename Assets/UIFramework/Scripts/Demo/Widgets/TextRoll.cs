@@ -9,7 +9,7 @@ public class TextRoll : BaseChart
 {
     public enum RollType
     {
-        OneByOne , 
+        OneByOne,
         Both
     }
 
@@ -21,40 +21,59 @@ public class TextRoll : BaseChart
     }
 
 
-    public void ToValue(int targetValue, RollType _rollType = RollType.OneByOne , Ease ease = Ease.OutQuart, float duration = 2f, UnityAction completeCallback = null)
+    public void ToValue(int targetValue, RollType _rollType = RollType.OneByOne, Ease ease = Ease.InOutQuad, float duration = 0.4f, UnityAction completeCallback = null)
     {
-
-        //mText_UsedCount[3].text = (usedCount % 10000 / 1000).ToString(); ;
-        //mText_UsedCount[2].text = (usedCount % 1000 / 100).ToString(); ;
-        //mText_UsedCount[1].text = (usedCount % 100 / 10).ToString(); ;
-        //mText_UsedCount[0].text = (usedCount % 10).ToString(); ;
-
-
         DOTween.Kill(this);
-        //mSlider.value = 0f;
-        //targetValue = Mathf.Clamp(targetValue, mSlider.minValue, mSlider.maxValue);
-        //DOTween.To(() => mSlider.value, x => mSlider.value = x, targetValue, duration).SetEase(ease).OnComplete(() => {
-        //    completeCallback?.Invoke();
-        //});
+        for (int i = 0; i < mTexts.Length; i++)
+        {
+            mTexts[i].text = "0";
+        }
+        string tempValue = targetValue.ToString();
+        int valueStrLength = tempValue.Length;
+        if (valueStrLength != mTexts.Length)
+        {
+            Debug.LogError("Text's length is not enough");
+            return;
+        }
+
         switch (_rollType)
         {
             case RollType.OneByOne:
 
                 Sequence tweenSequence = DOTween.Sequence();
-                //tweenSequence.Append(DOTween.To(value => { mText_Total[0].text = Mathf.Floor(value).ToString(); }, startValue: 0f, endValue: totalHouse % 10, duration: 0.3f).SetEase(Ease.Linear));
-                //tweenSequence.Append(DOTween.To(value => { mText_Total[1].text = Mathf.Floor(value).ToString(); }, startValue: 0f, endValue: totalHouse % 100 / 10, duration: 0.3f).SetEase(Ease.Linear));
-                //tweenSequence.Append(DOTween.To(value => { mText_Total[2].text = Mathf.Floor(value).ToString(); }, startValue: 0f, endValue: totalHouse % 1000 / 100, duration: 0.3f).SetEase(Ease.Linear));
-                //tweenSequence.Append(DOTween.To(value => { mText_Total[3].text = Mathf.Floor(value).ToString(); }, startValue: 0f, endValue: totalHouse % 10000 / 1000, duration: 0.3f).SetEase(Ease.Linear));
-                //tweenSequence.Append(DOTween.To(value => { mText_Total[4].text = Mathf.Floor(value).ToString(); }, startValue: 0f, endValue: totalHouse / 10000, duration: 0.3f).SetEase(Ease.Linear));
+                for (int i = valueStrLength - 1; i >= 0; i--)
+                {
+                    int index = i;
+                    tweenSequence.Append(
+                        DOTween.To(value => { mTexts[index].text = Mathf.Floor(value).ToString(); }, Random.Range(0f, 3f), Random.Range(7f, 10f), 0.08f).SetEase(Ease.InOutQuad).SetLoops(4, LoopType.Yoyo)
+                        .OnComplete(() =>
+                        {
+                            DOTween.To(value => { mTexts[index].text = Mathf.Floor(value).ToString(); }, 0f, float.Parse(tempValue[index].ToString()), duration: duration).SetEase(ease);
+                        }));
+                }
                 break;
+
             case RollType.Both:
-                ////  房屋属性类型设置
-                //for (int i = 0; i < mImage_Bars.Length; i++)
-                //{
-                //    int index = i;
-                //    mImage_Bars[index].GetComponentInChildren<Text>().text = houseTypeCount[index].ToString() + "（" + ((float)houseTypeCount[index] / (float)totalHouse * 100f).ToString("f") + "%）";
-                //    DOTween.To(value => { mImage_Bars[index].fillAmount = value; }, startValue: 0f, endValue: (float)houseTypeCount[index] / (float)totalHouse, duration: 1.2f);
-                //}
+                // random numbers
+                for (int i = 0; i < valueStrLength; i++)
+                {
+                    int index = i;
+                    if (index == valueStrLength - 1)
+                    {
+                        DOTween.To(value => { mTexts[index].text = Mathf.Floor(value).ToString(); }, Random.Range(0f, 3f), Random.Range(7f, 10f), 0.125f).SetEase(Ease.InOutQuad).SetLoops(10, LoopType.Yoyo).OnComplete(() =>
+                        {
+                            for (int j = 0; j < valueStrLength; j++)
+                            {
+                                int idx = j;
+                                DOTween.To(value => { mTexts[idx].text = Mathf.Floor(value).ToString(); }, 0f, float.Parse(tempValue[idx].ToString()), duration: duration).SetEase(ease);
+                            }
+                        });
+                    }
+                    else
+                    {
+                        DOTween.To(value => { mTexts[index].text = Mathf.Floor(value).ToString(); }, Random.Range(0f, 3f), Random.Range(7f, 10f), 0.125f).SetEase(Ease.InOutQuad).SetLoops(10, LoopType.Yoyo);
+                    }
+                }
                 break;
         }
 

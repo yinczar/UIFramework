@@ -30,7 +30,6 @@ public class SliderChartAdv : BaseChart
             if (!mBackFillImage)
                 mBackFillImage = mSlider_Back.fillRect.GetComponent<Image>();
             mBackFillImage.gameObject.SetActive(false);
-            //  mBackFillImage.color = new Color(mBackFillImage.color.r, mBackFillImage.color.g, mBackFillImage.color.b, 0f);
         }
     }
 
