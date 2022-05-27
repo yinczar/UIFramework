@@ -82,6 +82,7 @@
     <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\Panel_Right.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\Panel_Top.cs" />
     <Compile Include="Assets\UIFramework\Scripts\Demo\TweenMove\TestPanel.cs" />
+    <Compile Include="Assets\UIFramework\Scripts\Demo\Widgets\CircleChart.cs" />
     <Compile Include="Assets\UIFramework\Scripts\UI\Base\BasePanel.cs" />
     <Compile Include="Assets\UIFramework\Scripts\UI\UIManager.cs" />
   </ItemGroup>
